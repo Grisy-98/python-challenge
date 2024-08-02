@@ -21,4 +21,16 @@ print("---------------------------------------------")
 
 filename = open('Resources/election_data.csv','r')
 file = csv.DictReader(filename)
-candidate = []
+
+def unique(list1):
+    unique_list = []
+    for x in list1:
+        if x not in unique_list:
+            unique_list.append(x)
+    for x in unique_list:
+        print(x)
+
+candidates = []
+for col in file:
+    candidates.append(col['Candidate'])
+print(unique(candidates))
