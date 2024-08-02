@@ -1,7 +1,10 @@
 import os
 import csv
 
+#Get csv file
 csvpath = os.path.join( "Resources", "budget_data.csv")
+
+#Create txt file to write the results
 f = open("PyBank_Results.txt", "w") 
 print("Financial Analysis", file=f )
 print("---------------------------------------------", file=f)
@@ -21,11 +24,10 @@ file = csv.DictReader(filename)
 
 date = []
 profit_loss = []
-
-#The net total amount of "Profit/Losses" over the entire period
 for col in file:
     date.append(col['Date'])
     profit_loss.append(col['Profit/Losses'])
+#The net total amount of "Profit/Losses" over the entire period
 profit_loss = list(map(int, profit_loss))
 total = sum(profit_loss)
 print(f"Total: ${total}", file=f)
